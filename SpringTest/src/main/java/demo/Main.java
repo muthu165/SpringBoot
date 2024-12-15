@@ -15,6 +15,6 @@ public class Main {
         staff.assist();
 
         System.out.println(doctor.getQualification());
-        doctor.getNurse().assist();
+        
     }
 }
