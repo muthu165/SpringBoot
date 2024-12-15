@@ -13,8 +13,8 @@ public class Main {
 
         Staff staff = context.getBean(Doctor.class);
         staff.assist();
+//
+//        System.out.println(doctor.getQualification());
 
-        System.out.println(doctor.getQualification());
-        
     }
 }
