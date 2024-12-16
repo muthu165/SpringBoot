@@ -1,6 +1,7 @@
 package com.SpringMVC.demo.controller;
 
 import com.SpringMVC.demo.entity.Department;
+import com.SpringMVC.demo.error.DepartmentNotFoundException;
 import com.SpringMVC.demo.service.DepartmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}")
-    public Department getDepartmentById(@PathVariable("id") Long id) {
+    public Department getDepartmentById(@PathVariable("id") Long id) throws DepartmentNotFoundException {
         logger.info("inside getDepartmentById of DepartmentController");
         return departmentService.getDepartmentById(id);
     }
@@ -46,7 +47,7 @@ public class DepartmentController {
     }
 
     @PutMapping("/departments/{id}")
-    public Department updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
+    public Department updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) throws DepartmentNotFoundException {
         logger.info("inside updateDepartment of DepartmentController");
         return departmentService.updateDepartment(id,department);
     }
