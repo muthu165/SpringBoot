@@ -1,0 +1,75 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: qa
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: MVC
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: muthu@123
+  logging:
+    level:
+      root: DEBUG
+home:
+  message: Welcome to Spring MVC (Development)!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  application:
+    name: MVC
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-qa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: muthu@123
+  logging:
+    level:
+      root: INFO
+home:
+  message: Welcome to Spring MVC (QA)!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  application:
+    name: MVC
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-prod
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: muthu@123
+  logging:
+    level:
+      root: WARN
+home:
+  message: Welcome to Spring MVC (Production)!
